@@ -14,7 +14,8 @@
       "name": "Prayanoid",
       "price": 45000,
       "desc": "Emblema al pecho y una ilustración exclusiva a la espalda completa.",
-      "image": "assets/img/product-masked-tee.jpg",
+      "image": "assets/img/product-prayanoid-front.jpg",
+      "imageBack": "assets/img/product-prayanoid-back.jpg",
       "size": "S",
       "customizable": true
     }

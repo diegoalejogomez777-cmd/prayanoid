@@ -25,7 +25,8 @@ collections:
               - { label: "Nombre", name: "name", widget: "string" }
               - { label: "Precio (COP, solo número)", name: "price", widget: "number", value_type: "int" }
               - { label: "Descripción", name: "desc", widget: "text" }
-              - { label: "Foto del producto", name: "image", widget: "image" }
+              - { label: "Foto de adelante", name: "image", widget: "image" }
+              - { label: "Foto de atrás (opcional, agrega botón para verla)", name: "imageBack", widget: "image", required: false }
               - { label: "Talla", name: "size", widget: "string", default: "S" }
               - { label: "¿Permite personalización?", name: "customizable", widget: "boolean", default: true }
 
@@ -57,3 +58,25 @@ collections:
                 required: false
                 hint: "Sube las imágenes en el orden en que se deben leer."
                 field: { label: "Imagen de la página", name: "image", widget: "image" }
+
+  - name: "colecciones"
+    label: "Colecciones y Eventos"
+    files:
+      - name: "colecciones"
+        label: "Colecciones"
+        file: "content/collections.json"
+        fields:
+          - label: "Colecciones"
+            name: "collections"
+            widget: "list"
+            label_singular: "Colección"
+            summary: "{{title}}"
+            hint: "Agrega o quita colecciones y eventos de temporada libremente — no hay límite."
+            fields:
+              - { label: "Nombre de la colección o evento", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text", required: false }
+              - label: "Fotos"
+                name: "images"
+                widget: "list"
+                hint: "Agrega o quita las fotos que quieras de esta colección."
+                field: { label: "Foto", name: "image", widget: "image" }

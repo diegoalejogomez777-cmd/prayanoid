@@ -522,6 +522,33 @@ input { font: inherit; color: inherit; }
 }
 .product-info { display: flex; flex-direction: column; }
 
+.product-visual.has-back .mockup { transition: opacity .35s var(--ease-out); }
+.product-visual.has-back .mockup.back { position: absolute; inset: 0; opacity: 0; }
+.product-visual.has-back.is-flipped .mockup.front { opacity: 0; }
+.product-visual.has-back.is-flipped .mockup.back { opacity: 1; }
+
+.flip-btn {
+  position: absolute; bottom: .9rem; right: .9rem; z-index: 2;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(11,6,5,.75); border: 1px solid rgba(242,232,218,.25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream);
+  transition: transform .3s var(--ease-out), border-color .3s var(--ease-out);
+}
+.flip-btn:hover, .flip-btn:focus-visible { transform: scale(1.08); border-color: var(--pink); }
+.flip-btn svg { width: 18px; height: 18px; }
+
+.side-badge {
+  position: absolute; top: .9rem; left: .9rem; z-index: 2;
+  font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  padding: .3rem .6rem; border-radius: 999px;
+  background: rgba(11,6,5,.75); color: var(--cream-2); border: 1px solid rgba(242,232,218,.2);
+  transition: opacity .35s var(--ease-out);
+}
+.product-visual.has-back .side-badge.back-label { opacity: 0; }
+.product-visual.has-back.is-flipped .side-badge.front-label { opacity: 0; }
+.product-visual.has-back.is-flipped .side-badge.back-label { opacity: 1; }
+
 /* =============================================================
    10. Comic strip
    ============================================================= */
@@ -676,7 +703,7 @@ input { font: inherit; color: inherit; }
    15b. Comic reader pages
    ============================================================= */
 .comic-reader main { padding: clamp(3rem, 7vw, 5rem) 0 4rem; }
-.comic-reader .back {
+.back {
   display: inline-flex; align-items: center; gap: .4rem;
   color: var(--gold-soft); margin-bottom: 2rem; font-size: .92rem;
 }
@@ -702,6 +729,49 @@ input { font: inherit; color: inherit; }
   width: 100%; border-radius: var(--radius); border: 1px solid var(--line);
   box-shadow: 0 24px 48px -24px rgba(0,0,0,.7);
 }
+
+/* =============================================================
+   15c. Collections page (same accent treatment as the shop)
+   ============================================================= */
+.collections-page {
+  --accent: #ff1a6b;
+  --accent-2: #c8125a;
+  --gold-soft: #ff5c96;
+}
+
+.collections-grid {
+  display: grid; gap: 1.6rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 720px) { .collections-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1280px) { .collections-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.collections-empty {
+  grid-column: 1 / -1;
+  text-align: center; color: var(--cream-3);
+  padding: 3rem 1.5rem; border: 1px dashed var(--line); border-radius: var(--radius);
+}
+
+.collection-card {
+  background: linear-gradient(180deg, var(--card), var(--bg-2));
+  border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .4s var(--ease-out), border-color .4s var(--ease-out), box-shadow .4s var(--ease-out);
+}
+.collection-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,26,107,.5);
+  box-shadow: 0 24px 48px -20px rgba(0,0,0,.6);
+}
+.collection-media {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+  background: var(--bg-3);
+}
+.collection-media img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.collection-media img:only-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+.collection-info { padding: 1.4rem 1.6rem 1.6rem; }
+.collection-info h3 { font-size: 1.3rem; }
+.collection-info p { color: var(--cream-3); margin-top: .5rem; font-size: .92rem; }
 
 /* =============================================================
    15. Reduced motion — only intrusive effects

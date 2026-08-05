@@ -152,11 +152,41 @@
     });
   }
 
+  function initProductFlip() {
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-flip-btn]");
+      if (!btn) return;
+      var visual = btn.closest(".product-visual");
+      if (visual) visual.classList.toggle("is-flipped");
+    });
+  }
+
   /* ---------------------------------------------------------
      Shop products (rendered from content/products.json so the
      Decap CMS panel can edit them; falls back to the markup
      already hardcoded in index.html if the fetch fails).
   --------------------------------------------------------- */
+  function renderProductVisual(p) {
+    if (!p.imageBack) {
+      return (
+        '<div class="product-visual photo">' +
+          '<img class="mockup" src="' + escHTML(p.image) + '" alt="Camiseta negra Prayanoid — ' + escHTML(p.name) + '">' +
+        "</div>"
+      );
+    }
+    return (
+      '<div class="product-visual photo has-back">' +
+        '<span class="side-badge front-label">Adelante</span>' +
+        '<span class="side-badge back-label">Atrás</span>' +
+        '<img class="mockup front" src="' + escHTML(p.image) + '" alt="Camiseta negra Prayanoid — ' + escHTML(p.name) + ' (frente)">' +
+        '<img class="mockup back" src="' + escHTML(p.imageBack) + '" alt="Camiseta negra Prayanoid — ' + escHTML(p.name) + ' (espalda)">' +
+        '<button type="button" class="flip-btn" data-flip-btn aria-label="Ver la otra cara de la camiseta">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>' +
+        "</button>" +
+      "</div>"
+    );
+  }
+
   function renderProductCard(p) {
     var customize = p.customizable === false ? "" : (
       '<div class="customize-row">' +
@@ -166,9 +196,7 @@
     );
     return (
       '<article class="product-card reveal is-visible">' +
-        '<div class="product-visual photo">' +
-          '<img class="mockup" src="' + escHTML(p.image) + '" alt="Camiseta negra Prayanoid — ' + escHTML(p.name) + '">' +
-        "</div>" +
+        renderProductVisual(p) +
         '<div class="product-info">' +
           "<h3>" + escHTML(p.name) + "</h3>" +
           '<p class="desc">' + escHTML(p.desc) + "</p>" +
@@ -237,6 +265,39 @@
       })
       .catch(function (e) {
         console.warn("[mountComics] using fallback markup:", e.message);
+      });
+  }
+
+  /* ---------------------------------------------------------
+     Collections gallery (content/collections.json)
+  --------------------------------------------------------- */
+  function renderCollectionCard(c) {
+    var images = (c.images || []).map(function (src, i) {
+      return '<img src="' + escHTML(src) + '" alt="' + escHTML(c.title) + " — foto " + (i + 1) + '" loading="lazy" decoding="async">';
+    }).join("");
+    return (
+      '<article class="collection-card reveal is-visible">' +
+        '<div class="collection-media">' + images + "</div>" +
+        '<div class="collection-info">' +
+          "<h3>" + escHTML(c.title) + "</h3>" +
+          (c.description ? "<p>" + escHTML(c.description) + "</p>" : "") +
+        "</div>" +
+      "</article>"
+    );
+  }
+
+  function mountCollections() {
+    var target = $("[data-collections]");
+    if (!target || typeof fetch === "undefined") return Promise.resolve();
+    return fetch("content/collections.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (json) {
+        var items = (json && json.collections) || [];
+        if (!items.length) return;
+        target.innerHTML = items.map(renderCollectionCard).join("");
+      })
+      .catch(function (e) {
+        console.warn("[mountCollections] using fallback markup:", e.message);
       });
   }
 
@@ -436,6 +497,7 @@
     safe(setupSmoothScroll, "setupSmoothScroll");
     safe(initReveals, "initReveals");
     safe(initQtySteppers, "initQtySteppers");
+    safe(initProductFlip, "initProductFlip");
     safe(initCommentForm, "initCommentForm");
     safe(initCart, "initCart");
 
@@ -443,6 +505,7 @@
       safe(initGsapPolish, "initGsapPolish");
     });
     safe(mountComics, "mountComics");
+    safe(mountCollections, "mountCollections");
 
     document.documentElement.classList.add("is-ready");
   }
