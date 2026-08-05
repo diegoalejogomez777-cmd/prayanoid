@@ -696,6 +696,13 @@ input { font: inherit; color: inherit; }
 .comic-reader-panel p { max-width: 46ch; color: var(--cream-2); }
 .comic-reader-actions { margin-top: 2.2rem; display: flex; flex-wrap: wrap; gap: 1rem; }
 
+.comic-pages { display: none; flex-direction: column; gap: 1.5rem; max-width: 720px; margin-top: 2.4rem; }
+.comic-pages.is-visible { display: flex; }
+.comic-pages img {
+  width: 100%; border-radius: var(--radius); border: 1px solid var(--line);
+  box-shadow: 0 24px 48px -24px rgba(0,0,0,.7);
+}
+
 /* =============================================================
    15. Reduced motion — only intrusive effects
    ============================================================= */

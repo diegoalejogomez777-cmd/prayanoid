@@ -5,21 +5,27 @@
       "title": "Prólogo",
       "status": "Disponible ahora",
       "live": true,
-      "message": "Estamos preparando las páginas de este episodio para subirlas aquí. Vuelve pronto o escríbenos por WhatsApp para avisarte apenas estén listas."
+      "message": "Estamos preparando las páginas de este episodio para subirlas aquí. Vuelve pronto o escríbenos por WhatsApp para avisarte apenas estén listas.",
+      "cover": "",
+      "pages": []
     },
     {
       "id": "01",
       "title": "Renacido",
       "status": "Próximamente",
       "live": false,
-      "message": "Este episodio todavía está en camino. Escríbenos por WhatsApp y te avisamos apenas lo publiquemos."
+      "message": "Este episodio todavía está en camino. Escríbenos por WhatsApp y te avisamos apenas lo publiquemos.",
+      "cover": "",
+      "pages": []
     },
     {
       "id": "02",
       "title": "Sin título todavía",
       "status": "En proceso",
       "live": false,
-      "message": "Este episodio todavía se está dibujando. Escríbenos por WhatsApp y te avisamos apenas lo publiquemos."
+      "message": "Este episodio todavía se está dibujando. Escríbenos por WhatsApp y te avisamos apenas lo publiquemos.",
+      "cover": "",
+      "pages": []
     }
   ]
 }

@@ -212,8 +212,11 @@
   --------------------------------------------------------- */
   function renderComicCard(c) {
     var stamp = c.live ? '<span class="stamp">Nuevo</span>' : "";
+    var coverStyle = c.cover ? (
+      ' style="background-image: linear-gradient(180deg, rgba(11,6,5,.35), rgba(11,6,5,.92)), url(\'' + escHTML(c.cover) + '\'); background-size: cover; background-position: center;"'
+    ) : "";
     return (
-      '<a class="comic-card' + (c.live ? " is-live" : "") + ' reveal is-visible" href="comic-' + escHTML(c.id) + '.html" target="_blank" rel="noopener">' +
+      '<a class="comic-card' + (c.live ? " is-live" : "") + ' reveal is-visible" href="comic-' + escHTML(c.id) + '.html" target="_blank" rel="noopener"' + coverStyle + '>' +
         '<span class="episode-num" aria-hidden="true">' + escHTML(c.id) + "</span>" +
         stamp +
         "<h3>" + escHTML(c.title) + "</h3>" +

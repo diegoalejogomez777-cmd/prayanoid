@@ -49,4 +49,11 @@ collections:
               - { label: "Título del episodio", name: "title", widget: "string" }
               - { label: "Estado (texto libre, ej: Disponible ahora / Próximamente)", name: "status", widget: "string" }
               - { label: "¿Ya está publicado?", name: "live", widget: "boolean", default: false }
-              - { label: "Mensaje en la página del episodio", name: "message", widget: "text" }
+              - { label: "Mensaje mientras no hay páginas subidas", name: "message", widget: "text" }
+              - { label: "Portada (se ve en la tarjeta de la portada)", name: "cover", widget: "image", required: false }
+              - label: "Páginas del cómic"
+                name: "pages"
+                widget: "list"
+                required: false
+                hint: "Sube las imágenes en el orden en que se deben leer."
+                field: { label: "Imagen de la página", name: "image", widget: "image" }
