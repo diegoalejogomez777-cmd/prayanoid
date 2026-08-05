@@ -207,6 +207,37 @@
   }
 
   /* ---------------------------------------------------------
+     Comic grid (rendered from content/comics.json; same
+     fallback-on-failure pattern as mountProducts)
+  --------------------------------------------------------- */
+  function renderComicCard(c) {
+    var stamp = c.live ? '<span class="stamp">Nuevo</span>' : "";
+    return (
+      '<a class="comic-card' + (c.live ? " is-live" : "") + ' reveal is-visible" href="comic-' + escHTML(c.id) + '.html" target="_blank" rel="noopener">' +
+        '<span class="episode-num" aria-hidden="true">' + escHTML(c.id) + "</span>" +
+        stamp +
+        "<h3>" + escHTML(c.title) + "</h3>" +
+        '<span class="status">' + escHTML(c.status) + "</span>" +
+      "</a>"
+    );
+  }
+
+  function mountComics() {
+    var target = $("[data-comics]");
+    if (!target || typeof fetch === "undefined") return Promise.resolve();
+    return fetch("content/comics.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (json) {
+        var comics = (json && json.comics) || [];
+        if (!comics.length) return;
+        target.innerHTML = comics.map(renderComicCard).join("");
+      })
+      .catch(function (e) {
+        console.warn("[mountComics] using fallback markup:", e.message);
+      });
+  }
+
+  /* ---------------------------------------------------------
      Comic comment form (mailto)
   --------------------------------------------------------- */
   function initCommentForm() {
@@ -408,6 +439,7 @@
     mountProducts().then(function () {
       safe(initGsapPolish, "initGsapPolish");
     });
+    safe(mountComics, "mountComics");
 
     document.documentElement.classList.add("is-ready");
   }

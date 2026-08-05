@@ -28,3 +28,25 @@ collections:
               - { label: "Foto del producto", name: "image", widget: "image" }
               - { label: "Talla", name: "size", widget: "string", default: "S" }
               - { label: "¿Permite personalización?", name: "customizable", widget: "boolean", default: true }
+
+  - name: "comic"
+    label: "Cómic"
+    files:
+      - name: "episodios"
+        label: "Episodios"
+        file: "content/comics.json"
+        fields:
+          - label: "Episodios"
+            name: "comics"
+            widget: "list"
+            label_singular: "Episodio"
+            summary: "{{id}} — {{title}} ({{status}})"
+            min: 3
+            max: 3
+            hint: "Hay exactamente 3 episodios porque cada uno tiene su propia página. No cambies el ID (00, 01, 02) ni agregues o borres episodios aquí — si quieres uno nuevo, pide que te ayuden a crear su página primero."
+            fields:
+              - { label: "ID (no lo cambies: 00, 01 o 02)", name: "id", widget: "string" }
+              - { label: "Título del episodio", name: "title", widget: "string" }
+              - { label: "Estado (texto libre, ej: Disponible ahora / Próximamente)", name: "status", widget: "string" }
+              - { label: "¿Ya está publicado?", name: "live", widget: "boolean", default: false }
+              - { label: "Mensaje en la página del episodio", name: "message", widget: "text" }
