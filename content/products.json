@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "p-custom",
+      "name": "Diseño Personalizado",
+      "price": 40000,
+      "desc": "Camiseta negra 100% personalizable. Escribe tu idea, nombre o frase y la hacemos realidad.",
+      "image": "assets/img/product-custom-tee.jpg",
+      "size": "S",
+      "customizable": true
+    },
+    {
+      "id": "p-mascara",
+      "name": "Prayanoid",
+      "price": 45000,
+      "desc": "Emblema al pecho y una ilustración exclusiva a la espalda completa.",
+      "image": "assets/img/product-masked-tee.jpg",
+      "size": "S",
+      "customizable": true
+    }
+  ]
+}

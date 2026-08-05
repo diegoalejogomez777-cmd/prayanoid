@@ -1,0 +1,35 @@
+{
+  "texture-velvet": {
+    "src": "assets/img/texture-velvet.jpg",
+    "title": "Red Drapery",
+    "creator": "shaire productions",
+    "creator_url": "https://www.flickr.com/photos/9822107@N08",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/9822107@N08/3056579358",
+    "source": "flickr"
+  },
+  "hero-tent": {
+    "src": "assets/img/hero-tent.jpg",
+    "title": "Cole Brothers' Circus Tent",
+    "creator": "soham_pablo",
+    "creator_url": "https://www.flickr.com/photos/75879414@N00",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/75879414@N00/15110999415",
+    "source": "flickr"
+  },
+  "texture-grunge": {
+    "src": "assets/img/texture-grunge.jpg",
+    "title": "burning - free to use TEX",
+    "creator": "H.Adam",
+    "creator_url": "https://www.flickr.com/photos/30426423@N07",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/30426423@N07/4402057171",
+    "source": "flickr"
+  }
+}

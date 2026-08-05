@@ -1,0 +1,30 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+locale: "es"
+
+collections:
+  - name: "tienda"
+    label: "Tienda"
+    files:
+      - name: "productos"
+        label: "Camisetas"
+        file: "content/products.json"
+        fields:
+          - label: "Camisetas"
+            name: "products"
+            widget: "list"
+            label_singular: "Camiseta"
+            summary: "{{name}} — ${{price}}"
+            fields:
+              - { label: "ID interno (sin espacios)", name: "id", widget: "string" }
+              - { label: "Nombre", name: "name", widget: "string" }
+              - { label: "Precio (COP, solo número)", name: "price", widget: "number", value_type: "int" }
+              - { label: "Descripción", name: "desc", widget: "text" }
+              - { label: "Foto del producto", name: "image", widget: "image" }
+              - { label: "Talla", name: "size", widget: "string", default: "S" }
+              - { label: "¿Permite personalización?", name: "customizable", widget: "boolean", default: true }

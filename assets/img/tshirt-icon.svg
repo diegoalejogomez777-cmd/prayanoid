@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="teeTitle">
+  <title id="teeTitle">Camiseta negra PRAYANOID</title>
+  <path d="M70,18 L40,34 L14,64 L38,88 L54,74 L54,182 L146,182 L146,74 L162,88 L186,64 L160,34 L130,18
+           C130,32 116,42 100,42 C84,42 70,32 70,18 Z"
+        fill="#0c0c0c" stroke="#3a3a3a" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M70,18 C70,32 84,42 100,42 C116,42 130,32 130,18" fill="none" stroke="#3a3a3a" stroke-width="2.5"/>
+</svg>

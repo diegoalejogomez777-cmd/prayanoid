@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Créditos fotográficos · PRAYANOID</title>
+<meta name="description" content="Créditos y licencias de las imágenes utilizadas en PRAYANOID.">
+<meta name="theme-color" content="#0b0605">
+<link rel="icon" type="image/png" href="assets/img/jester-emblem.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Butcherman&family=Rye&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=20260804f">
+<style>
+  .page-credits main { padding: clamp(4rem, 8vw, 6rem) 0; }
+  .page-credits .back { display: inline-flex; align-items: center; gap: .4rem; color: var(--gold-soft); margin-bottom: 2rem; }
+  .credits-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .credits-list li { padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: 10px; font-size: .92rem; color: var(--cream-2); }
+  .credits-list a { color: var(--gold-soft); text-decoration: underline; text-underline-offset: 3px; }
+</style>
+</head>
+<body class="page-credits">
+<header class="site-header">
+  <div class="container">
+    <a class="brand-mark" href="index.html">
+      <img src="assets/img/jester-emblem.png" alt="" aria-hidden="true">
+      <strong>PRAYANOID</strong>
+    </a>
+  </div>
+</header>
+<main class="container">
+  <a class="back" href="index.html">← Volver a la carpa</a>
+  <span class="kicker">Transparencia</span>
+  <h1 style="font-size:clamp(2rem,5vw,3rem);margin-top:.6rem;">Créditos fotográficos</h1>
+  <p style="color:var(--cream-3);margin-top:1rem;max-width:60ch;">Algunas texturas e imágenes de ambiente de este sitio provienen de <a href="https://openverse.org" target="_blank" rel="noopener" style="color:var(--gold-soft);">Openverse</a> bajo licencias Creative Commons.</p>
+  <ul class="credits-list" data-credits></ul>
+</main>
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span>© 2026 PRAYANOID. Todos los derechos reservados.</span>
+  </div>
+</footer>
+<script defer src="lib/credits-render.js?v=20260804f"></script>
+</body>
+</html>
