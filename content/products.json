@@ -17,15 +17,6 @@
       "image": "assets/img/product-masked-tee.jpg",
       "size": "S",
       "customizable": true
-    },
-    {
-      "size": "S M",
-      "customizable": false,
-      "id": "p-hola",
-      "name": "prueba",
-      "price": 999,
-      "desc": "xd",
-      "image": "/assets/img/uploads/79f1642195c10400040f95d0b5616e93.jpg"
     }
   ]
 }
